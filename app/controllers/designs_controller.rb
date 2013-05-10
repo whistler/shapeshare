@@ -1,5 +1,6 @@
 class DesignsController < ApplicationController
   before_action :set_design, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:edit, :update, :destroy]
 
   # GET /designs
   def index
@@ -22,7 +23,7 @@ class DesignsController < ApplicationController
   # POST /designs
   def create
     @design = Design.new(design_params)
-
+    @design.user_id = current_user
     if @design.save
       redirect_to @design, notice: 'Design was successfully created.'
     else
