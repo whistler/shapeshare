@@ -1,4 +1,4 @@
-<h1>Listing designs</h1>
+<h1>All Designs</h1>
 
 <table>
   <thead>
@@ -12,6 +12,7 @@
   <tbody>
     <% @designs.each do |design| %>
     <tr>
+      <td><%= design.title %></td>
       <td><%= link_to 'Show', design %></td>
       <td><%= link_to 'Edit', edit_design_path(design) %></td>
       <td><%= link_to 'Destroy', design, method: :delete, data: { confirm: 'Are you sure?' } %></td>

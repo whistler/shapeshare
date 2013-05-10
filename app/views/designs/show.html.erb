@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-
-<%= link_to 'Edit', edit_design_path(@design) %> |
-<%= link_to 'Back', designs_path %>
+<h2><%= @design.title %></h2>
+<p><%= @design.description %></p>
+<%= link_to 'Download', @design.file.url %> |
+<%= link_to 'Edit', edit_design_path(@design) %>
