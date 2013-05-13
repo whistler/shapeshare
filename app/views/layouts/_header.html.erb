@@ -1,8 +1,22 @@
-<h1><%= link_to ThreeDPrinting::APP_TITLE, root_path %></h1>
-<% if user_signed_in? %>
-  Welcome <%= user.name%>! | 
-  <%= link_to 'Logout', destroy_user_session_path %>
-<% else %>
-  <%= link_to 'Log in', new_user_session_path %> | 
-  <%= link_to 'Sign up ', new_user_registration_path %> 
+<h1></h1>
+
+	<div class="navbar navbar-fixed-top navbar-inverse">
+	<div class="navbar-inner">
+	<div class=container>
+	<ul class="nav">
+	<li><a class="brand"> <%= link_to 'CADTOHAND', root_path %> </a></li>
+	<% if user_signed_in? %>
+			<li><a href="#">
+			Welcome <%= user.name%>! | 
+			<%= link_to 'Logout', destroy_user_session_path %>
+			</a></li>			
+	<% else %>
+			<li class><a href="#"><%= link_to 'Log in', new_user_session_path %></a></li>
+			<li><a href="#"><%= link_to 'Sign up ', new_user_registration_path%></a></li>
+	<form class="navbar-search">
+		<input type = "text" class = "search-query" placeholder="What Should I 3D Print?">
+	</form>
+	</div>
+	</div>
+	</div>
 <% end %>

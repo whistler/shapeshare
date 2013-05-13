@@ -12,9 +12,11 @@ gem "fog", "~> 1.3.1" # For uploading to AWS S3
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 4.0.0.beta1'
+  gem 'less-rails'
   gem 'coffee-rails', '~> 4.0.0.beta1'
-
+  gem 'twitter-bootstrap-rails'
+  gem 'therubyracer'
+	
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', platforms: :ruby
 
