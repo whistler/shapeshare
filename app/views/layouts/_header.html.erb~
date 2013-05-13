@@ -4,7 +4,8 @@
 	<div class="navbar-inner">
 	<div class=container>
 	<ul class="nav">
-	<li><a class="brand"> <%= link_to 'CADTOHAND', root_path %> </a></li>
+	<li><a class="brand"> <%= link_to 'Home', root_path %> </a></li>
+	        
 	<% if user_signed_in? %>
 			<li><a href="#">
 			Welcome <%= user.name%>! | 
