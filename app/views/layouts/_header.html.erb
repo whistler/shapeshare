@@ -9,13 +9,14 @@
 			<li><a href="#">
 			Welcome <%= user.name%>! | 
 			<%= link_to 'Logout', destroy_user_session_path %>
-			</a></li>			
+			</a></li>
+			<form class="navbar-search pull-right">
+			<input type = "text" class = "search-query" placeholder="What Should I 3D Print?"> 
+			</form>
 	<% else %>
 			<li class><a href="#"><%= link_to 'Log in', new_user_session_path %></a></li>
 			<li><a href="#"><%= link_to 'Sign up ', new_user_registration_path%></a></li>
-	<form class="navbar-search">
-		<input type = "text" class = "search-query" placeholder="What Should I 3D Print?">
-	</form>
+	
 	</div>
 	</div>
 	</div>
