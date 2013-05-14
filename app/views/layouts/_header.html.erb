@@ -11,10 +11,16 @@
 	<li><a class="brand"> <%= link_to 'Home', root_path %> </a></li>
 	        
 	<% if user_signed_in? %>
+<<<<<<< HEAD
 	  
 	    
 			<li><a class="brand">
 			<%= link_to 'Logout', destroy_user_session_path %>
+=======
+			<li><a href="#">
+			Welcome <%= current_user.name %>! | 
+			<%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
+>>>>>>> b5519ea47834e5a484c0f266fb1910c136a92668
 			</a></li>
 			
 			<form class="navbar-search">
