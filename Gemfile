@@ -5,7 +5,8 @@ gem 'rails', '4.0.0.beta1'
 
 gem 'sqlite3'
 
-gem 'devise', :git => "git://github.com/arashbm/devise.git", :branch => "rails4" # For user authentication
+gem 'devise' # For user authentication
+gem 'protected_attributes'
 gem 'carrierwave' # For file uploads
 gem "fog", "~> 1.3.1" # For uploading to AWS S3
 
