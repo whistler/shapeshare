@@ -1,8 +1,11 @@
 <h1>
 
   <div class="page-header">
-  Welcome to CADTOHAND !
-    </div>
+    Welcome to CADTOHAND  
+    <% if user_signed_in? %><%= user.name %>!
+    <% else %>Guest!
+    <% end %>
+   </div>
 </h1>
 
 <div class="navbar navbar-fixed-top navbar-inverse">
