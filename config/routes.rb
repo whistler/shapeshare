@@ -1,7 +1,7 @@
 ThreeDPrinting::Application.routes.draw do
-  get "welcome/index"
   devise_for :users
   resources :designs
+  post "search" => "search#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -5,4 +5,6 @@ class Design < ActiveRecord::Base
   validates :file, presence: true
 
   mount_uploader :file, DesignUploader
+
+  acts_as_indexed :fields => [:title, :description]
 end
