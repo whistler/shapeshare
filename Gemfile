@@ -1,9 +1,8 @@
 source 'https://rubygems.org'
+ruby "2.0.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0.beta1'
-
-gem 'sqlite3'
 
 gem 'devise' # For user authentication
 gem 'protected_attributes'
@@ -34,6 +33,15 @@ gem 'jbuilder', '~> 1.0.1'
 
 group :development do
   gem 'railroady' # Generates Class diagram
+  gem 'heroku'
+end
+
+group :development, :test do
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
 end
 
 # To use ActiveModel has_secure_password
