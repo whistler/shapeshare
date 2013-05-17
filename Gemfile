@@ -16,8 +16,7 @@ gem 'twitter-bootstrap-rails'
 gem 'less-rails'
 
 ### Search
-gem 'sunspot_rails'
-gem 'sunspot_solr' # pre-packaged Solr distribution for use in development
+gem 'acts_as_indexed'
 
 # Gems used only for assets and not required
 # in production environments by default.

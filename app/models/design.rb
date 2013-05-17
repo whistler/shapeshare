@@ -6,7 +6,5 @@ class Design < ActiveRecord::Base
 
   mount_uploader :file, DesignUploader
 
-  searchable do 
-    text :title, :description
-  end
+  acts_as_indexed :fields => [:title, :description]
 end
