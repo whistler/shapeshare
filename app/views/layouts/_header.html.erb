@@ -12,9 +12,9 @@
           <li class><a href="#"><%= link_to 'Log in', new_user_session_path %></a></li>
           <li><a href="#"><%= link_to 'Sign up ', new_user_registration_path%></a></li>
         <% end %>
-        <%= form_tag('/search', :class=>"navbar-search pull-left") do %>
+        <%= form_tag('/search', :class=>"navbar-search") do %>
           <%= text_field_tag :query, nil, :class=>"search-query", :placeholder => "What do you want to print?" %>
-          <%= submit_tag 'Search' %>
+          <%= submit_tag 'Search', :class=> "btn-primary"%>
         <% end %>
       </div>
     </div>

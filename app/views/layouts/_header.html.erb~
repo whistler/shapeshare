@@ -1,15 +1,4 @@
-<h1>
-  <div class="page-header">
-    Welcome to CADTOHAND
-    <% if user_signed_in? %>
-      <%= current_user.name %>!
-    <% else %>
-      Guest!
-    <% end %>
-  </div>
-</h1>
-
-<div class="navbar navbar-fixed-top navbar-inverse">
+<div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
       <ul class="nav">
@@ -23,10 +12,23 @@
           <li class><a href="#"><%= link_to 'Log in', new_user_session_path %></a></li>
           <li><a href="#"><%= link_to 'Sign up ', new_user_registration_path%></a></li>
         <% end %>
-        <%= form_tag('/search', :class=>"navbar-search pull-right") do %>
+        <%= form_tag('/search', :class=>"navbar-search pull-left") do %>
           <%= text_field_tag :query, nil, :class=>"search-query", :placeholder => "What do you want to print?" %>
           <%= submit_tag 'Search' %>
         <% end %>
       </div>
     </div>
   </div>
+  
+<h1>
+  <div class="page-header">
+    Welcome to CADTOHAND
+    <% if user_signed_in? %>
+      <%= current_user.name %>!
+    <% else %>
+      Guest!
+    <% end %>
+  </div>
+</h1>
+
+
