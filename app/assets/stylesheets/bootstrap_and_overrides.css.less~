@@ -1,9 +1,3 @@
-@navbarBackground:                #c79810 ;
-@navbarBackgroundHighlight:       #eab92d ;
-@navbarText:                      #f9ed9d ;
-@navbarLinkColor:                 #f9ed9d ;
-@navbarSearchPlaceholderColor:    #EEC844 ;
-
 @import "twitter/bootstrap/bootstrap";
 
 body { padding-top: 30px; padding-left: 20px; }
@@ -22,18 +16,11 @@ body { padding-top: 30px; padding-left: 20px; }
 @fontAwesomeWoffPath: asset-path("fontawesome-webfont.woff?v=3.0.2");
 @fontAwesomeTtfPath: asset-path("fontawesome-webfont.ttf?v=3.0.2");
 
-
-
 // Font Awesome
 @import "fontawesome";
 
-
-
 // Glyphicons
 //@import "twitter/bootstrap/sprites.less";
-
-
-
 
 // Your custom LESS stylesheets goes here
 //
@@ -44,6 +31,7 @@ body { padding-top: 30px; padding-left: 20px; }
 // See http://twitter.github.com/bootstrap/customize.html#variables for their names and documentation
 //
 // Example:
-// @linkColor: #ff0000;
-
+@linkColor: #00FF00;
+@linkColorHover: darken(@linkColor, 15%);
+@navbarBackground: #FF0000;
 
