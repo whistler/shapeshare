@@ -2,7 +2,9 @@
 
 <%= form_for(resource, :as => resource_name, :class =>"form-horizontal", :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
+  <div><%= f.label :name, :class=>"control-group" %>
+    <div><%= f.text_field :name, :class=>"controls" %></div>
+  </div>
   <div><%= f.label :email, :class=>"control-group" %>
     <div><%= f.email_field :email, :class=>"controls" %></div>
   </div>
