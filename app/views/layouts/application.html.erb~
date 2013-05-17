@@ -8,7 +8,6 @@
 </head>
 <body>
    <p class="notice"><%= notice %></p>
-   <p class="alert"><%= alert %></p>
    <div id="header"><%= render partial: 'layouts/header' %></div>
    <div id="content"><%= yield %></div>
 </body>

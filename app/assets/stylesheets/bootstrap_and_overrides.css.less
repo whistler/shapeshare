@@ -1,8 +1,16 @@
 @import "twitter/bootstrap/bootstrap";
-
-body { padding-top: 30px; padding-left: 20px; }
-
 @import "twitter/bootstrap/responsive";
+
+  body{
+    padding-top: 60px;
+    padding-left: 20px;
+  }
+  @media(max-width: 980px){
+    body{
+      padding-top: 0;
+    }
+  }
+
 
 // Set the correct sprite paths
 @iconSpritePath: asset-path("twitter/bootstrap/glyphicons-halflings.png");
@@ -27,10 +35,13 @@ body { padding-top: 30px; padding-left: 20px; }
 // Since bootstrap was imported above you have access to its mixins which
 // you may use and inherit here
 //
-// If you'd like to override bootstrap's own variables, you can do so here as well
+// If you'd like to overrid bootstrap's own variables, you can do so here as well
 // See http://twitter.github.com/bootstrap/customize.html#variables for their names and documentation
 //
 // Example:
-//@linkColor: #000000;
+@linkColor: #00FF22;
 @linkColorHover: darken(@linkColor, 20%);
+@btnPrimaryBackground: @linkColor;
+@btnPrimaryBackgroundHighlight: darken(@linkColor,10%);
+@navbarBackground: @linkColor;
 
