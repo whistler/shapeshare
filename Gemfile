@@ -9,17 +9,16 @@ gem 'protected_attributes'
 gem 'carrierwave' # For file uploads
 gem "fog", "~> 1.3.1" # For uploading to AWS S3
 
+gem 'twitter-bootstrap-rails'
+gem 'less-rails'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'less-rails'
   gem 'coffee-rails', '~> 4.0.0.beta1'
-  gem 'twitter-bootstrap-rails'
   gem 'therubyracer'
-	
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', platforms: :ruby
-
   gem 'uglifier', '>= 1.0.3'
 end
 
