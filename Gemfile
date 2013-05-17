@@ -6,19 +6,24 @@ gem 'rails', '4.0.0.beta1'
 
 gem 'devise' # For user authentication
 gem 'protected_attributes'
+
+### File Upload
 gem 'carrierwave' # For file uploads
 gem "fog", "~> 1.3.1" # For uploading to AWS S3
 
+### Stylesheets
 gem 'twitter-bootstrap-rails'
 gem 'less-rails'
+
+### Search
+gem 'sunspot_rails'
+gem 'sunspot_solr' # pre-packaged Solr distribution for use in development
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'coffee-rails', '~> 4.0.0.beta1'
-  gem 'therubyracer'
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', platforms: :ruby
+  gem 'therubyracer' # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'uglifier', '>= 1.0.3'
 end
 
@@ -42,6 +47,9 @@ end
 group :production do
   gem 'pg'
 end
+
+### Util
+gem 'progress_bar'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

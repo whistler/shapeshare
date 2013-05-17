@@ -1,0 +1,6 @@
+<dl>
+  <% @designs.each do |design| %>
+    <dt><%= link_to design.title, design_path(design)%></dt>
+    <dd><%= design.description %></dd>
+  <% end %>
+</ul>

@@ -5,4 +5,8 @@ class Design < ActiveRecord::Base
   validates :file, presence: true
 
   mount_uploader :file, DesignUploader
+
+  searchable do 
+    text :title, :description
+  end
 end
