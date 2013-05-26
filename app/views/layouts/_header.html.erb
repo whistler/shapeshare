@@ -1,29 +1,32 @@
-<div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container-fluid">
-      <ul class="nav">
-        <li><a class="brand"> <%= link_to 'Home', root_path %> </a></li>
+<div class="navbar navbar-fixed-top">  
+	<div class="navbar-inner">  
+		<div class="container">  
+		<a class="brand" href="/">CADTOHAND</a>
+		<div class="nav-collapse">
+			<ul class="nav pull-right">
+<% if user_signed_in? %>
+	<div class="btn-group">
+  		<a class="btn btn-primary" href="#"><i class="icon-user"></i> <%= current_user.name %></a>
+  		<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+    	<span class="icon-caret-down"></span></a> 
+		<ul class="dropdown-menu">
+			<li><a href="#">View My Profile</a></li>
+			<li class="divider"></li>
+            <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
+		</ul>
+	</div>
+  <% else %>
+  <li><%= link_to 'Log in', new_user_session_path %></li>
+  <li><%= link_to 'Sign up ', new_user_registration_path%></li>
+<% end %>
+</ul>  
 
-        <% if user_signed_in? %>
-          <li><a href="#">
-            <%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
-          </a></li>
-        <% else %>
-          <li class><a href="#"><%= link_to 'Log in', new_user_session_path %></a></li>
-          <li><a href="#"><%= link_to 'Sign up ', new_user_registration_path%></a></li>
-        <% end %>
-        <%= form_tag('/search', :class=>"navbar-search") do %>
+<ul class="nav">  
+<%= form_tag('/search', :class=>"navbar-search pull-left") do %>
           <%= text_field_tag :query, nil, :class=>"search-query", :placeholder => "What do you want to print?" %>
+         
           <%= submit_tag 'Search', :class=> "btn-primary"%>
-        <% end %>
-      <% if user_signed_in? %>
-      <div class="pull-right">
-      <p class = "navbar-text"><%= current_user.name %></p>
-      </div>
-    <% else %>
-    <% end %>
-      </div>
-    </div>
-  </div>
-
-
+<% end %>
+</div>  
+</div>  
+</div>  
