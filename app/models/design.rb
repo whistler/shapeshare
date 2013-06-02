@@ -4,6 +4,8 @@ class Design < ActiveRecord::Base
   validates :description, presence: true
   validates :file, presence: true
 
+  attr_accessible :title, :description, :file
+
   mount_uploader :file, DesignUploader
 
   acts_as_indexed :fields => [:title, :description]
