@@ -1,6 +1,6 @@
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
-    <div class="container">
+    <div class="container-fluid">
       <ul class="nav">
         <li><a class="brand"> <%= link_to 'Home', root_path %> </a></li>
 
@@ -16,19 +16,14 @@
           <%= text_field_tag :query, nil, :class=>"search-query", :placeholder => "What do you want to print?" %>
           <%= submit_tag 'Search', :class=> "btn-primary"%>
         <% end %>
+      <% if user_signed_in? %>
+      <div class="pull-right">
+      <p class = "navbar-text"><%= current_user.name %></p>
+      </div>
+    <% else %>
+    <% end %>
       </div>
     </div>
   </div>
-  
-<h1>
-  <div class="page-header">
-    Welcome to CADTOHAND
-    <% if user_signed_in? %>
-      <%= current_user.name %>!
-    <% else %>
-      Guest!
-    <% end %>
-  </div>
-</h1>
 
 
