@@ -1,4 +1,143 @@
+<%= javascript_include_tag "three.min.js" %>
+<%= javascript_include_tag "stlloader.js" %>
+    <script>
+      $(function() {
+
+        //if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+
+        var container, stats;
+        var HEIGHT = 400;
+        var WIDTH = 600;
+
+        var camera, cameraTarget, scene, renderer;
+
+        init();
+        animate();
+
+        function init() {
+
+          container = document.createElement( 'div' );
+          document.body.appendChild( container );
+
+          camera = new THREE.PerspectiveCamera( 45, WIDTH / HEIGHT, 10, 15000 );
+          camera.position.set( 5000, 100, 4000 );
+
+          cameraTarget = new THREE.Vector3( 0, 0, 0 );
+
+          scene = new THREE.Scene();
+          scene.fog = new THREE.Fog( 0xffffff, 200, 15000 );
+
+          // Binary files
+
+          var material = new THREE.MeshPhongMaterial( { ambient: 0x0000FF, color: 0x5f5f5f, specular: 0x111111, shininess: 200 } );
+
+          var loader = new THREE.STLLoader();
+          loader.addEventListener( 'load', function ( event ) {
+
+            var geometry = event.content;
+            var mesh = new THREE.Mesh( geometry, material );
+
+            mesh.position.set( 0, 0, 0 );
+            mesh.rotation.set( - Math.PI / 2, 0, 0 );
+            //mesh.scale.set( 2, 2, 2 );
+
+            mesh.castShadow = true;
+            mesh.receiveShadow = true;
+
+            scene.add( mesh );
+
+          } );
+          loader.load( '/bowden-extruder-base-clamp.stl' );
+
+          // Lights
+
+          scene.add( new THREE.AmbientLight( 0x777777 ) );
+
+          addShadowedLight( 1, 1, 1, 0xffffff, 1.35 );
+          addShadowedLight( 0.5, 1, -1, 0xffaa00, 1 );
+
+          // renderer
+
+          renderer = new THREE.WebGLRenderer( { antialias: true, alpha: false } );
+          renderer.setSize( WIDTH, HEIGHT );
+
+          renderer.setClearColor( scene.fog.color, 1 );
+
+          renderer.gammaInput = true;
+          renderer.gammaOutput = true;
+          renderer.physicallyBasedShading = true;
+
+          renderer.shadowMapEnabled = true;
+          renderer.shadowMapCullFace = THREE.CullFaceBack;
+
+          container.appendChild( renderer.domElement );
+
+          window.addEventListener( 'resize', onWindowResize, false );
+
+        }
+
+        function addShadowedLight( x, y, z, color, intensity ) {
+
+          var directionalLight = new THREE.DirectionalLight( color, intensity );
+          directionalLight.position.set( x, y, z )
+          scene.add( directionalLight );
+
+          directionalLight.castShadow = true;
+          // directionalLight.shadowCameraVisible = true;
+
+          var d = 1;
+          directionalLight.shadowCameraLeft = -d;
+          directionalLight.shadowCameraRight = d;
+          directionalLight.shadowCameraTop = d;
+          directionalLight.shadowCameraBottom = -d;
+
+          directionalLight.shadowCameraNear = 1;
+          directionalLight.shadowCameraFar = 4;
+
+          directionalLight.shadowMapWidth = 1024;
+          directionalLight.shadowMapHeight = 1024;
+
+          directionalLight.shadowBias = -0.005;
+          directionalLight.shadowDarkness = 0.15;
+
+        }
+
+        function onWindowResize() {
+
+          camera.aspect = WIDTH / HEIGHT;
+          camera.updateProjectionMatrix();
+
+          renderer.setSize( WIDTH, HEIGHT );
+
+        }
+
+        function animate() {
+
+          requestAnimationFrame( animate );
+
+          render();
+
+        }
+
+        function render() {
+
+          var timer = Date.now() * 0.0005;
+
+          camera.position.x = Math.cos( timer ) * 3;
+          camera.position.z = Math.sin( timer ) * 3;
+
+          camera.lookAt( cameraTarget );
+
+          renderer.render( scene, camera );
+
+        }
+
+
+      })
+    </script>
 <h2><%= @design.title %></h2>
 <p><%= @design.description %></p>
+<div id="modelviewer">
+</div>
 <%= link_to 'Download', @design.file.url %> |
 <%= link_to 'Edit', edit_design_path(@design) %>
