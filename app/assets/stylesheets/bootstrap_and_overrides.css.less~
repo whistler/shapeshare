@@ -39,13 +39,13 @@
 // See http://twitter.github.com/bootstrap/customize.html#variables for their names and documentation
 //
 // Example:
-@linkColor: @black;
+@linkColor: @white;
 @linkColorHover: darken(@linkColor, 20%);
 @btnPrimaryBackground: @black;
-@btnBackground: #00FF00;
+@btnBackground: @black;
 @btnBackgroundHighlight: darken(@btnBackground,10%);
-@navbarBackground: #00FF00;
+//@navbarBackground: @black;
 @navbarLinkColor: @black;
-@navbarHeight: 30px;
-@navbarLinkColorHover: @white;
+@navbarHeight: 20px;
+@navbarLinkColorHover: darken(@navbarLinkColor,10%);
 @line-height: 20px;

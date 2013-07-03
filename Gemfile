@@ -12,7 +12,7 @@ gem 'carrierwave' # For file uploads
 gem "fog", "~> 1.3.1" # For uploading to AWS S3
 
 ### Stylesheets
-gem 'twitter-bootstrap-rails'
+gem "twitter-bootstrap-rails", :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'less-rails'
 
 ### Search
