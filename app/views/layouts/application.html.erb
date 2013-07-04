@@ -1,15 +1,69 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>CADTOHAND - 3D Printing Model (CAD) Search Platform</title>
-  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "three.min.js", "data-turbolinks-eval" => false %>
-  <%= javascript_include_tag "stlloader.js", "data-turbolinks-track" => false %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-   <div id="header"><%= render partial: 'layouts/header' %></div>
-   <div id="content"><%= yield %></div>
-</body>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+  <head>
+  	<meta charset="utf-8" />
+
+  	<!-- Uncomment to make IE8 render like IE7 -->
+  	<!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
+
+  	<!-- Set the viewport width to device width for mobile -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  	<title><%= content_for?(:title) ? yield(:title) : "Shapeshare - 3D Printing Marketplace" %></title>
+
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "three.min.js", "data-turbolinks-eval" => false %>
+    <%= javascript_include_tag "stlloader.js", "data-turbolinks-track" => false %>
+  	<%= javascript_include_tag "vendor/custom.modernizr" %>
+    <%= csrf_meta_tags %>
+
+  </head>
+
+  <body>
+  <nav class="top-bar">
+  
+    <ul class="title-area">
+      <li class="name">
+        <h1><%= link_to "Shapeshare",root_path %></a></h1>
+      </li>
+    
+    </ul>
+          
+    <section class="top-bar-section">
+
+      <ul class="left">
+        <%= form_tag('/search') do %>
+          <li>
+            <%= text_field_tag :query, nil ,:placeholder => "Click to search for 3D models", :id=>"nav_search_box" %>
+          </li>
+          <li>
+            <%= submit_tag 'Search', :class=>"round button", :id=>"nav_search_btn" %>
+          </li>
+        <% end %>
+      </ul>
+
+      <ul class="right">
+        <% if user_signed_in? %>
+          <li><%= link_to current_user.name, "#" %></a></li>
+          <li class="divider"></li>
+          <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+        <% else %>
+          <li><%= link_to "Log in", new_user_session_path %></li>
+          <li class="divider"></li>
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
+        <% end %>
+  
+      </ul>
+    </div>
+</nav>
+
+  <%= yield %>
+    
+  </body>
 </html>

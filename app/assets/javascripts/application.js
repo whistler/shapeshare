@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
+//= require foundation
 //= require turbolinks
-//= require bootstrap
-//= require search
+
+$(function(){ $(document).foundation(); });
