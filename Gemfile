@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby "2.0.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.0.beta1'
 
 gem 'devise' # For user authentication
 gem 'protected_attributes'
@@ -12,8 +12,8 @@ gem 'carrierwave' # For file uploads
 gem "fog", "~> 1.3.1" # For uploading to AWS S3
 
 ### Stylesheets
-#gem "twitter-bootstrap-rails", :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
-#gem 'less-rails'
+gem "twitter-bootstrap-rails", :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'less-rails'
 
 ### Search
 gem 'acts_as_indexed'
@@ -21,12 +21,9 @@ gem 'acts_as_indexed'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sprockets-rails', '~> 2.0.0'
-  gem 'coffee-rails', '~> 4.0.0.beta1'
-  gem 'sass-rails', '~> 4.0.0'
+  gem 'coffee-rails', '~> 4.0.0'
   gem 'therubyracer' # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'uglifier', '>= 1.0.3'
-  gem 'zurb-foundation', :git=>"https://github.com/zurb/foundation.git"
 end
 
 gem 'jquery-rails'
