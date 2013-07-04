@@ -1,5 +1,3 @@
-<%= javascript_include_tag "three.min.js" %>
-<%= javascript_include_tag "stlloader.js" %>
     <script>
       $(function() {
 
@@ -47,7 +45,7 @@
             scene.add( mesh );
 
           } );
-          loader.load( '/bowden-extruder-base-clamp.stl' );
+          loader.load( '<%= @design.file.url %>' );
 
           // Lights
 
