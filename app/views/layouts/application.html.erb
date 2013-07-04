@@ -1,13 +1,70 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>CADTOHAND - 3D Printing Model (CAD) Search Platform</title>
-  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-   <div id="header"><%= render partial: 'layouts/header' %></div>
-   <div id="content"><%= yield %></div>
-</body>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+  <head>
+  	<meta charset="utf-8" />
+
+  	<!-- Uncomment to make IE8 render like IE7 -->
+  	<!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
+
+  	<!-- Set the viewport width to device width for mobile -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  	<title><%= content_for?(:title) ? yield(:title) : "Shapeshare - 3D Printing Marketplace" %></title>
+
+  	<%= stylesheet_link_tag    "application" %>
+  	<%= javascript_include_tag "vendor/custom.modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+  <nav class="top-bar">
+  
+    <ul class="title-area">
+      <li class="name">
+        <h1><%= link_to "Shapeshare",root_path %></a></h1>
+      </li>
+    </ul>
+    
+    <ul class="left search">
+      <%= form_tag('/search') do %>
+        <li class="divider"></li>
+          <%= text_field_tag :query, nil ,:placeholder => "Click to search for 3D models" %>
+        <li class="divider"></li>
+          <%= submit_tag 'Search', :class=>"round button" %>
+      <% end %>
+    </ul>
+          
+    <section class="top-bar-section">
+      <ul class="right">
+        <li class="divider"></li>
+        
+          <% if user_signed_in? %>
+            <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+          <% else %>
+            <li><%= link_to "Log in", new_user_session_path %></li>
+            <li class="divider"></li>
+            <li><%= link_to "Sign up", new_user_registration_path %></li>
+          <% end %>
+        
+          <li class="divider"></li>
+          <li class="name">
+            <h1>
+            <% if user_signed_in? %>
+              <%= current_user.name %>
+            <% end %>
+            </h1>
+          </li>
+  
+      </ul>
+    </div>
+</nav>
+
+  <%= yield %>
+    
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>
