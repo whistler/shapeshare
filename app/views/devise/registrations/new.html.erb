@@ -1,34 +1,37 @@
-<div class="small-4 columns"><h1 class="right inline">Sign up</h1></div>
+<div class = "row"><div class="small-4 small-offset-4 rows"><h1>Sign up</h1></div></div>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-  
-  <div class="row">
-    <div class="small-6 columns"><%= f.label :name, :class=>"right inline"%></div>
-    <div class="small-6 columns"><%= f.text_field :name %></div>
-  </div>
-  
-  <div class="row">
-    <div class="small-6 columns"><%= f.label :email, :class=>"right inline" %></div>
-    <div class="small-6 columns"><%= f.email_field :email %></div>
-  </div>
-  
-  <div class="row">
-    <div class="small-6 columns"><%= f.label :password, :class=>"right inline" %></div>
-    <div class="small-6 columns"><%= f.password_field :password  %></div>
-  </div>
-  
-  <div class="row">
-    <div class="small-6 columns"><%= f.label :password_confirmation, :class=>"right inline"%></div>
-    <div class="small-6 columns"><%= f.password_field :password_confirmation %></div>
-  </div>
+<div>
+
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
     
-  <div class="row">
-    <div class="small-6 small-offset-6 columns"><%= f.submit "Sign Up", :class=>"round button" %></div>
-  </div>
-  
-<% end %>
+    <div class="row">
+      <div class="small-4 columns"><%= f.label :name, :class=>"right inline"%></div>
+      <div class = "small-4 small-offset-4 rows"><%= f.text_field :name %></div>
+    </div>
+    
+    <div class="row">
+      <div class="small-4 columns"><%= f.label :email, :class=>"right inline" %></div>
+      <div class = "small-4 small-offset-4 rows"><%= f.email_field :email %></div>
+    </div>
+    
+    <div class="row">
+      <div class="small-4 columns"><%= f.label :password, :class=>"right inline" %></div>
+      <div class = "small-4 small-offset-4 rows"><%= f.password_field :password  %></div>
+    </div>
+    
+    <div class="row">
+      <div class="small-4 columns"><%= f.label :password_confirmation, :class=>"right inline"%></div>
+      <div class = "small-4 small-offset-4 rows"><%= f.password_field :password_confirmation %></div>
+    </div>
+      
+    <div class="row">
+      <div class="small-4 small-offset-5 rows"><%= f.submit "Sign Up", :class=>"round button" %></div>
+    </div>
+    
+  <% end %>
+</div>
 
 <div class="row">
-  <div class="small-6 small-offset-6 columns"><%= render :partial => "devise/shared/links" %>
+  <div class="small-4 small-offset-4 rows"><%= render :partial => "devise/shared/links" %>
 </div>
