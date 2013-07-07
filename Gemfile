@@ -20,14 +20,15 @@ gem 'acts_as_indexed'
 
 # Gems used only for assets and not required
 # in production environments by default.
-group :assets do
+#group :assets do
   gem 'sprockets-rails', '~> 2.0.0'
   gem 'sass-rails', '~> 4.0.0'
   gem 'coffee-rails', '~> 4.0.0'
   gem 'therubyracer' # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'uglifier', '>= 1.0.3'
+  gem 'compass-rails'
   gem 'zurb-foundation', :git=>"https://github.com/zurb/foundation.git"
-end
+#end
 
 gem 'jquery-rails'
 
@@ -40,6 +41,7 @@ gem 'jbuilder', '~> 1.0.1'
 group :development do
   gem 'railroady' # Generates Class diagram
   gem 'heroku'
+  gem 'taps'
 end
 
 group :development, :test do
