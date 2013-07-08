@@ -1,10 +1,19 @@
 <div> 
 	<div class="small-4 small-offset-4 rows"><h2>Most Downloaded<h2></div>
+	
+	
 
 		<div>
-			<ul>
+			<ul class="no-bullet">
 				<% @designs.each do |design| %>
-				<li><%= link_to design.title, design_path(design)%></li>
+				  <li><%= link_to design.title, design_path(design)%></li>
+          <li>
+            <div class = "small-4 columns">
+              <a class ="th radius" href="#"><img src="../assets/thumbnail.png" height="150" width="150"></a>
+            </div>
+            
+          </li>
+				
 				<% end %>
 			</ul>
 		</div>
