@@ -133,9 +133,21 @@
 
       })
     </script>
-<h2><%= @design.title %></h2>
-<p><%= @design.description %></p>
+<div class = "row">
+  <div class="small-4 small-offset-4 rows">
+    <h2><%= @design.title %></h2>
+  </div>
+</div>
+
+<div class = "row">
+  <div class="small-4 small-offset-4 rows">
+    <p><%= @design.description %></p>
+  </div>
+</div>
 <div id="modelviewer">
 </div>
-<%= link_to 'Download', @design.file.url %> |
+<div class = "row">
+  <div class="small-4 small-offset-4 rows"><%= link_to 'Download', @design.file.url %> |
 <%= link_to 'Edit', edit_design_path(@design) %>
+  </div>
+</div>
