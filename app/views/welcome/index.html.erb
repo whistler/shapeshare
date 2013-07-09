@@ -3,19 +3,16 @@
 	
 	
 
-		<div>
+		<div class="row">
 			<ul class="no-bullet">
 				<% @designs.each do |design| %>
-				  <li><%= link_to design.title, design_path(design)%></li>
-          <li>
-            <div class = "small-4 columns">
-              <a class ="th radius" href="#"><img src="../assets/thumbnail.png" height="150" width="150"></a>
+				  <div class="small-4"><%= link_to design.title, design_path(design) %></div>
+            <div class="small-4"><a class ="th radius" href="#"><img src="../assets/thumbnail.png" height="200" width="250"></a>
             </div>
-            
-          </li>
-				
 				<% end %>
 			</ul>
 		</div>
 
 </div>
+
+

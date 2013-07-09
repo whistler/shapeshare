@@ -30,7 +30,7 @@
   
     <ul class="title-area">
       <li class="name">
-        <h1><%= link_to "Shapeshare",root_path %></a></h1>
+        <h1><%= link_to image_tag("../assets/shapeshare.png", :height => 50, :width=> 125),root_path %></a></h1>
       </li>
     
     </ul>
@@ -40,7 +40,7 @@
       <ul class="left">
         <%= form_tag('/search') do %>
           <li>
-            <%= text_field_tag :query, nil ,:placeholder => "Click to search for 3D models", :id=>"nav_search_box" %>
+            <%= text_field_tag :query, nil ,:placeholder => "Search for 3D models", :id=>"nav_search_box" %>
           </li>
           <li>
             <%= submit_tag 'Search', :class=>"round button", :id=>"nav_search_btn" %>
