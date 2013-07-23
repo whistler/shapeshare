@@ -26,7 +26,7 @@ gem 'acts_as_indexed'
   gem 'coffee-rails', '~> 4.0.0'
   gem 'therubyracer' # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'uglifier', '>= 1.0.3'
-  gem 'compass-rails'
+  gem "compass-rails", github: "milgner/compass-rails", ref: "1749c06f15dc4b058427e7969810457213647fb8"
   gem 'zurb-foundation', :git=>"https://github.com/zurb/foundation.git"
 #end
 

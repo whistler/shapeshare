@@ -1,18 +1,14 @@
-<div> 
-	<div class="small-4 small-offset-4 rows"><h2>Most Downloaded<h2></div>
-	
-	
-
+<div>
+	<div class="small-4 small-offset-4 rows"><h2>Most Downloaded</h2></div>
 		<div class="row">
-			<ul class="no-bullet">
+			<ul class="small-block-grid-3">
 				<% @designs.each do |design| %>
-				  <div class="small-4"><%= link_to design.title, design_path(design) %></div>
-            <div class="small-4"><a class ="th radius" href="#"><img src="../assets/thumbnail.png" height="200" width="250"></a>
-            </div>
-				<% end %>
-			</ul>
-		</div>
-
+				<li>
+					<div><%= link_to design.title, design_path(design) %></div>
+		    		<div><%= link_to image_tag("../assets/thumbnail.png", :height => 50, :width=> 125), design_path(design), class: "th" %></div>
+		    	</li>
+		    	<% end %>
+	    	</ul>
+	    </div>
 </div>
-
-
+	
