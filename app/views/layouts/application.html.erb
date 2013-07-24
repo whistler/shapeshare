@@ -39,10 +39,10 @@
 
       <ul class="left">
         <%= form_tag('/search') do %>
-          <li>
+          <li class="has-form">
             <%= text_field_tag :query, nil ,:placeholder => "Search for 3D models", :id=>"nav_search_box" %>
           </li>
-          <li>
+          <li class="has-form">
             <%= submit_tag 'Search', :class=>"round button", :id=>"nav_search_btn" %>
           </li>
         <% end %>
