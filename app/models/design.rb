@@ -3,6 +3,7 @@ class Design < ActiveRecord::Base
   validates :title, presence: true, length: {minimum: 4, maximum: 160}
   validates :description, presence: true
   validates :file, presence: true
+  validates :price, :numericality => {:greater_than_or_equal_to => 0.01} 
 
   attr_accessible :title, :description, :file
 
